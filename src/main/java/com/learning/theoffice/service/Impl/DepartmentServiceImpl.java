@@ -17,15 +17,16 @@ public class DepartmentServiceImpl implements DepartmentService {
     DepartmentRepo departmentRepo;
 
     @Override
-    public DepartmentResponse save(DepartmentRequest request) {
+    public DepartmentResponse save(DepartmentRequest request) {      //convert response to entity and save
         Department department=new Department();
 
         department.setId(request.getId());
         department.setCode(request.getCode());
+        department.setName(request.getName());
         department.setLocation(request.getLocation());
         department.setRecordCreatedDate(new Date());
-        Department save=departmentRepo.save(department);
-        return convert(department);
+        Department save=departmentRepo.save(department);      //save
+        return convert(department);                           //convert to response func
     }
 
     @Override
@@ -37,6 +38,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         DepartmentResponse departmentResponse=new DepartmentResponse();
         departmentResponse.setId(department.getId());
         departmentResponse.setCode(department.getCode());
+        departmentResponse.setName(department.getName());
         departmentResponse.setLocation(department.getLocation());
         departmentResponse.setRecordCreatedDate(department.getRecordCreatedDate());
         return  departmentResponse;
