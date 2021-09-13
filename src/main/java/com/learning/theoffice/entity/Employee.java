@@ -1,6 +1,8 @@
 package com.learning.theoffice.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -38,8 +40,9 @@ public class Employee {
     @Column(name = "MODIFIED_BY",nullable = false,length = 50)
     private String modifiedBy;
 
+    @ColumnDefault("0")
     @Column(name = "ACTIVE_STATUS")
-    private Integer status;
+    private Integer status=0;
 
     @ManyToOne
     @JoinColumn(name = "DEPT_ID",referencedColumnName = "id")
