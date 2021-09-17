@@ -8,8 +8,10 @@ import com.learning.theoffice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -33,6 +35,15 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<DepartmentResponse> saveAll(List<DepartmentRequest> departmentRequestList) {
         return null;
     }
+
+    @Override
+    public List<DepartmentResponse> getAll() {
+        return departmentRepo.findAll()
+                .stream().map(DepartmentServiceImpl::convert).collect(Collectors.toList());
+    }
+
+
+
 
     private static DepartmentResponse convert(Department department){       //convert entity to response
         DepartmentResponse departmentResponse=new DepartmentResponse();

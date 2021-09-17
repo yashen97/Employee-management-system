@@ -25,5 +25,5 @@ public class EmployeeResponse {
 
     private Integer status;
 
-    private Department departmentId;
+    private String departmentName; //->map name here
 }

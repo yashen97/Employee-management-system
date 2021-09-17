@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class EmployeeRequest {
 
-    private Long id;
+    //private Long id;
 
     private String name;
 
@@ -17,6 +17,6 @@ public class EmployeeRequest {
 
     private Integer status;
 
-    private Department departmentId;
+    private Long departmentId;
 
 }

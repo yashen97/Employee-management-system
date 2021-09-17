@@ -4,10 +4,7 @@ import com.learning.theoffice.dto.response.DepartmentResponse;
 import com.learning.theoffice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,12 @@ public class DepartmentController {
         List<DepartmentResponse> response=departmentService.saveAll(departmentRequestList);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("all")
+    public ResponseEntity<List<DepartmentResponse>> getAll(){
+        List<DepartmentResponse> departmentResponseList=departmentService.getAll();
+        return ResponseEntity.ok(departmentResponseList);
+    }
+
+
 }

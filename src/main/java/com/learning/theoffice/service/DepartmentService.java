@@ -9,4 +9,7 @@ public interface DepartmentService {
     DepartmentResponse save(DepartmentRequest request);
 
     List<DepartmentResponse> saveAll(List<DepartmentRequest> departmentRequestList);
+
+
+    List<DepartmentResponse> getAll();
 }
