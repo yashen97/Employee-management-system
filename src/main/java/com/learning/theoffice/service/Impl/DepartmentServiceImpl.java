@@ -3,10 +3,12 @@ package com.learning.theoffice.service.Impl;
 import com.learning.theoffice.dto.request.DepartmentRequest;
 import com.learning.theoffice.dto.response.DepartmentResponse;
 import com.learning.theoffice.entity.Department;
+import com.learning.theoffice.entity.Employee;
 import com.learning.theoffice.repository.DepartmentRepo;
 import com.learning.theoffice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.SecureRandom;
 import java.util.Date;
@@ -32,9 +34,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public List<DepartmentResponse> saveAll(List<DepartmentRequest> departmentRequestList) {
-        return null;
+    public List<Department> saveAll(List<Department> departmentList) {
+        return departmentRepo.saveAll(departmentList);
     }
+
+
 
     @Override
     public List<DepartmentResponse> getAll() {
@@ -54,5 +58,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         departmentResponse.setRecordCreatedDate(department.getRecordCreatedDate());
         return  departmentResponse;
     }
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.learning.theoffice.controller;
 import com.learning.theoffice.dto.request.DepartmentRequest;
 import com.learning.theoffice.dto.response.DepartmentResponse;
+import com.learning.theoffice.entity.Department;
 import com.learning.theoffice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,8 @@ public class DepartmentController {
     }
 
     @PostMapping("all")
-    public ResponseEntity<List<DepartmentResponse>> saveAll(@RequestBody List<DepartmentRequest> departmentRequestList){
-        List<DepartmentResponse> response=departmentService.saveAll(departmentRequestList);
-        return ResponseEntity.ok(response);
+    public List<Department> saveAll(@RequestBody List<Department> departmentList){
+        return departmentService.saveAll(departmentList);
     }
 
     @GetMapping("all")
