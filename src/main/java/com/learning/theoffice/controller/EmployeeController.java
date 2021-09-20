@@ -5,7 +5,8 @@ import com.learning.theoffice.dto.request.EmployeeUpdateRequest;
 import com.learning.theoffice.dto.response.EmployeeResponse;
 import com.learning.theoffice.entity.Employee;
 import com.learning.theoffice.service.EmployeeService;
-import io.swagger.models.auth.In;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;                                      //logger
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,14 @@ import java.util.List;
 @RestController
 @RequestMapping("Employee")
 public class EmployeeController {
+
+
+
     @Autowired
     EmployeeService employeeService;
+
+
+    final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
     @PostMapping("post")
     public ResponseEntity<EmployeeResponse> save(@RequestBody EmployeeRequest employeeRequest){
@@ -31,6 +38,7 @@ public class EmployeeController {
 
     @GetMapping("")
     public ResponseEntity<List<EmployeeResponse>> getAllEmployees(){
+        logger.info("FUCK U BITCH");
         List<EmployeeResponse> responseList=employeeService.getAll();
         return ResponseEntity.ok(responseList);
     }

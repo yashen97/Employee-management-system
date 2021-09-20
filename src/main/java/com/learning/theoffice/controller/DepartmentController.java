@@ -3,6 +3,8 @@ import com.learning.theoffice.dto.request.DepartmentRequest;
 import com.learning.theoffice.dto.response.DepartmentResponse;
 import com.learning.theoffice.entity.Department;
 import com.learning.theoffice.service.DepartmentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +17,12 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
+    final Logger logger=LoggerFactory.getLogger(DepartmentController.class);
+
     @PostMapping()
     public ResponseEntity<DepartmentResponse> save(@RequestBody DepartmentRequest departmentRequest){
         DepartmentResponse response =departmentService.save(departmentRequest);
+        logger.info("dept created");
         return ResponseEntity.ok(response);
     }
 
