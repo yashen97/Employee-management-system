@@ -15,7 +15,7 @@ public class Department {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "DEPT_NAME",length = 20,nullable = false)
+    @Column(name = "NAME",length = 20,nullable = false)
     private String name;
 
     @Column(name = "DEPT_CODE",nullable = false,length = 50)

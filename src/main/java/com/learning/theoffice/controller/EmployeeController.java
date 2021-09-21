@@ -38,7 +38,7 @@ public class EmployeeController {
 
     @GetMapping("")
     public ResponseEntity<List<EmployeeResponse>> getAllEmployees(){
-        logger.info("FUCK U BITCH");
+        logger.info("GOT U FAM");
         List<EmployeeResponse> responseList=employeeService.getAll();
         return ResponseEntity.ok(responseList);
     }

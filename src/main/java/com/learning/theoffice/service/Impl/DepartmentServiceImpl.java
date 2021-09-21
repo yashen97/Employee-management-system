@@ -3,14 +3,11 @@ package com.learning.theoffice.service.Impl;
 import com.learning.theoffice.dto.request.DepartmentRequest;
 import com.learning.theoffice.dto.response.DepartmentResponse;
 import com.learning.theoffice.entity.Department;
-import com.learning.theoffice.entity.Employee;
 import com.learning.theoffice.repository.DepartmentRepo;
 import com.learning.theoffice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public DepartmentResponse save(DepartmentRequest request) {      //convert response to entity and save
         Department department=new Department();
 
-        department.setId(request.getId());
+        //department.setId(request.getId());
         department.setCode(request.getCode());
         department.setName(request.getName());
         department.setLocation(request.getLocation());
